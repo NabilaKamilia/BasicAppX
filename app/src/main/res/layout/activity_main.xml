@@ -60,6 +60,7 @@
             android:layout_gravity="center"
             android:background="@color/etBgColor"
             android:inputType="number"
+            android:gravity="center"
             android:hint="@string/hint"/>
 
         <Spinner
