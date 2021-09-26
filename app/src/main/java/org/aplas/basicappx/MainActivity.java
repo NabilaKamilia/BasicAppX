@@ -1,5 +1,9 @@
 package org.aplas.basicappx;
 
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.CompoundButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.appcompat.app.AlertDialog;
@@ -122,7 +126,53 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+        convertBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doConvert();
+            }
+        });
+        unitOri.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                doConvert();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                return;
+            }
+        });
+        unitConv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                doConvert();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                return;
+            }
+        });
+        roundBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                doConvert();
+            }
+        });
+
+        formBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ((ImageView) findViewById(R.id.imgFormula)).setVisibility((isChecked) ? View.VISIBLE : View.INVISIBLE);
+            }
+        });
+
+
     }
+
+
 
     @Override
     protected void onStart() {
